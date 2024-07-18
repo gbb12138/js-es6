@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 没有关键字时，声明的是全局的变量，并且挂到widow的属性上
+        function A() {
+            a = 1
+            console.log('函数A内部访问没有关键字定义的变量a', a)
+        }
+
+        function B() {
+            console.log('函数B内部访问没有关键字定义的变量a', a)
+        }
+
+        A()   // 1
+        B()   // 1
+        console.log(window.a)   // 1
+
+
+
+
+        // 2. 使用var定义变量的作用域是函数内，并且会被提升到作用域的最前面
+        var b = 2;
+
+        function C() {
+            // 这里在函数内部定义c,c的声明会被提升到函数作用域的最前面
+            // var c；
+            // console.log(b, c)；
+            // c = 3
+            console.log(b, c);  // 2 undefined
+            var c = 3 // 这里其实就是 c = 3， 执行了赋值
+        }
+
+        console.log(b, window.b);  // 2 2
+        C();
+
+        console.log(window.c); // undefined
+        console.log(c); // error
+
+
+    </script>
+</body>
+
+</html>

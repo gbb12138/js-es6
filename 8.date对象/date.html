@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. Date.parse(字符串); 返回时间戳
+        let date1 = Date.parse('6/7/2024'); // 月/日/年
+        console.log('Date.parse(): ', new Date(date1));
+        let date2 = Date.parse('2024-06-01T15:30:02'); // YYYY-MM-DDTHH:mm:ss
+        console.log('Date.parse(): ', new Date(date2));
+
+        // 2.Date.UTC(年，0起点月，日，时，分，秒);返回时间戳, 返回的是格林尼治标准时间，
+        // 格林尼治标准时间 + 8 = 北京时间
+
+        let date3 = Date.UTC(2024, 5, 7, 15, 50, 59);
+        console.log('Date.UTC(): ', new Date(date3));
+
+        // Date.now()返回当前时间
+        let date4 = Date.now();
+        console.log('Date.now(): ', new Date(date4));
+
+
+        // 继承自Object的方法
+        console.log('date.toLocaleString(): ', new Date(date4).toLocaleString());
+        console.log('date.toString(): ', new Date(date4).toString());
+        console.log('date.valueOf(): ', new Date(date4).valueOf()); // 返回时间戳
+
+
+
+        let date = new Date();
+        console.log('date.getTime():时间戳', date.getTime());
+        console.log('date.getFullYear():年', date.getFullYear());
+        console.log('date.getMonth():0起点月', date.getMonth());
+        console.log('date.getDate():日', date.getDate());
+        console.log('date.getHours():时', date.getHours());
+        console.log('date.getMinutes():分', date.getMinutes());
+        console.log('date.getSeconds():秒', date.getSeconds());
+
+
+    </script>
+</body>
+
+</html>
