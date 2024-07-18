@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div></div>
+    <p>66666</p>
+    <div>7777</div>
+    <link rel="stylesheet" href="index.css" id="my-stylesheet" defer>
+    <script>
+        const stylesheet = document.querySelector("#my-stylesheet");
+        console.log(stylesheet.style)
+        stylesheet.onload = () => {
+            // 做点有意思的事情，样式表已经加载了
+            console.log(333333);
+        };
+
+        stylesheet.onerror = () => {
+            console.log("加载样式表时发生错误！");
+        };
+
+        for (let i = 0; i < 1000000000; i++) {
+
+        }
+        let div = document.getElementsByTagName('div');
+        console.log(div, 444444)
+    </script>
+
+
+</body>
+
+</html>

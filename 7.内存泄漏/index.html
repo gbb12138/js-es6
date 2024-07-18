@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 内存泄漏，就是内存一直不能释放
+        // 1. 通过定义全局变量导致的内存泄漏（没有使用关键字定义）
+
+        function A() {
+            a = 123; // 这里a会被定义为全局变量，并且挂到widow对象，window对象是不会被销毁的
+        }
+
+        A()
+        console.log(window.a);
+
+
+        // 2.定时器导致的内存泄漏
+
+        let num = 1;
+        setInterval(function () {
+            // 定时器内部用到了变量num，只要定时器在运行，num的内存就一直不会被释放
+            console.log(num, '我是定时器');
+        }, 1000);
+
+
+        // 3. 使用闭包
+        function out() {
+            let name = '王小包';
+            return function () {
+                console.log(name); // 闭包内部使用了，out作用域的变量，只要返回的函数不被清理，name的引用就一直存在，不会被垃圾回收机制清理
+            }
+        }
+
+        out()();
+
+    </script>
+</body>
+
+</html>
