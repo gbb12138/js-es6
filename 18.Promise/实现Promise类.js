@@ -50,15 +50,6 @@ class Promise {
                     let res = success(this.value);
                     // promise回调函数执行时，promise的状态已经改变，这时再去改变thenPromise的状态
                     resolvePromise(res, resolve);
-                    // if (res instanceof Promise) {
-                    //     //then注册的回调函数，返回的是Promise实例，需要等这个返回实例的状态改变后，才能触发thenPromise的resolve，并把返回实例的结果给thenPromise
-                    //     res.then(value => {
-                    //         resolve(value);
-                    //     })
-                    // } else {
-                    //     // then注册的回调函数，返回的不是Promise实例，立即执行thenPromise的resolve，并把返回的值，传给thenPromise的value中
-                    //     resolve(res);
-                    // }
                 });
             });
         } else {
