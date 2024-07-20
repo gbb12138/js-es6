@@ -9,4 +9,4 @@ function* gen() {
 }
 
 let g = gen();
-console.log(g.next()); // 开始执行第一个yield后的表达式，执行完后暂停
+console.log(g.next(), 77); // 开始执行第一个yield后的表达式，执行完后暂停
