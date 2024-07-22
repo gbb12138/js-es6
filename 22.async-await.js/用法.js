@@ -16,9 +16,9 @@ function readFile(fileName) {
 
 
 // 调用async返回一个Promise对象，执行完所有的函数体语句，或者遇到return，promise才会变成resolve，才会去执行注册的回调函数
-// 遇到await函数体执行暂停，去执await后的表达式，直到表达式执行完成，才会接着往下执行函数体
+// 遇到await函数体执行暂停，去执await后的表达式，直到表达式resolv或者reject，才会返回往下执行函数体
 // await后面默认是一个promie对象，如果不是，通过Promise.resolve(...)包装
-// 如果有一个await后面的语句是reject, 那么这个返回的promise对象就变成renject状态,所以await最好放在try catch中
+// 如果有一个await后面的语句是reject, 那么这个返回的promise对象就变成reject状态,所以await最好放在try catch中
 async function getData() {
     try {
         var data = await readFile('1.txt');
