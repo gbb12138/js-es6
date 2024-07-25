@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150%;
+            height: 1000px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        console.log('整个浏览器窗口大小：', window.outerWidth, window.outerHeight);
+        console.log('可视窗口大小:', window.innerWidth, window.innerHeight);
+        console.log('可视窗口大小：', document.documentElement.clientWidth, document.documentElement.clientHeight);
+        console.log('滚动的距离：', window.scrollX, window.scrollY);
+        window.scrollTo({
+            top: 200,
+            behavior: 'smooth' // 平滑滚动
+        });
+        console.log('', window.location)
+    </script>
+</body>
+
+</html>

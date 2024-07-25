@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button">点击</button>
+    111111.html
+    <script>
+        let obj = {
+            name: 'aa',
+            age: 1
+        }
+        // 不能跨域
+        button.onclick = function () {
+            // window.open('222.html');
+            history.pushState(obj, null, '222.html');
+        }
+
+    </script>
+</body>
+
+</html>

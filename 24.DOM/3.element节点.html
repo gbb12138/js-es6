@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            color: red;
+        }
+
+        .myDiv {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let ele = document.createElement('div'); // 创建一个元素节点， nodeType：1
+        // ele.innerText = '123';
+        let text = document.createTextNode('文本节点的内容'); // 创建一个文本节点
+        ele.appendChild(text); // 将文本节点插入到元素节点中
+        ele.id = 'box'; // 设置id
+        ele.className = 'myDiv'; // 设置class
+        ele.title = '一个标题'; // 设置title
+        ele.setAttribute('my-data', "{name: 'aa'}"); // 添加自定义属性
+        console.log(ele.getAttribute('my-data')); // 获取自定义属性的值
+        console.log(ele.removeAttribute('my-data')); // 删除自定义属性
+        ele.style.fontSize = '20px'; // 通过给元素添加style行内样式添加样式
+        ele.setAttribute('font-weight', 800); // 直接通过属性中添加font-weight="800"，没有效果
+        document.body.appendChild(ele);
+    </script>
+</body>
+
+</html>

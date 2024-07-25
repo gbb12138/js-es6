@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <span>span标签</span>
+        <div>div标签</div>
+    </div>
+    <p>p标签</p>
+    <h1 id="h1">
+        <span id="title">1.</span>
+        <span>2.</span>
+    </h1>
+    <script>
+        let root = document.documentElement; // 获取document的引用
+        console.log('document nodeType::', root.nodeType); // 9
+        console.log('document nodeValue::', root.nodeValue); // null
+        console.log('document 的子节点', root.childNodes); // 获取子节点
+        console.log('第一个子节点:', root.firstChild); // 第一个子节点
+        console.log('最后一个子节点:', root.lastChild); // 最后一个子节点
+
+        let box = document.getElementById('box');
+        console.log('获取父节点：', box.parentNode); // 获取父节点
+        console.log('上一个兄弟节点：', box.previousSibling); // 获取上一个兄弟节点
+        console.log('下一个兄弟节点:', box.nextSibling); // 获取下一个兄弟节点
+
+        let h1 = document.getElementById('h1');
+        let title = h1.getElementsByTagName("span"); // 获取元素中的某个元素 getElementsByTagName
+        for (let node of h1.childNodes) { // 获取遍历childNodes
+            if (node.nodeType === 1) { // 是element类型
+                console.log(node);
+            }
+            if (node.nodeType === 3) { // 文本类型
+                node.normalize();
+            }
+        }
+        console.log(h1.childNodes);
+
+    </script>
+</body>
+
+</html>

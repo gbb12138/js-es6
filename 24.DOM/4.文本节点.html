@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1111111</div>
+    <script>
+        let div = document.getElementsByTagName('div')[0];
+        let divText = div.firstChild; // 获取文本引用
+        divText.nodeValue = '设置的文本内容'; // 修改文本节点的值
+
+        let newText = document.createTextNode('创建新的文本节点，并且给这个文本节点赋值'); //创建文本节点，nodeType：3
+        let text1 = document.createTextNode('text1');
+        let text2 = document.createTextNode('text2');
+        div.append(newText, text1, text2); // 将文本节点插入到元素中
+        console.log(div.childNodes.length); // 获取元素子节点个数 4
+        div.normalize();// 父元素调用normalize，内部连续的文本节点会被合并成一个文本节点
+        console.log(div.childNodes.length); // 1
+
+    </script>
+</body>
+
+</html>

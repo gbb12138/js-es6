@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">111
+        <p id="p">33</p>
+    </div>
+    <span id="span">222</span>
+    <script>
+        let box = document.getElementById('box');
+        let span = document.getElementById('span');
+        box.appendChild(span); // 在末尾插入节点，parentNode.appendChild(ele),如果ele是已经存在的节点，从原节点移除，插入到对应的位置，appendChild返回插入的节点引用
+        box.insertBefore(span, document.getElementById('p')); //parentNode.insertBefore(ele, beforeNode)在beforeNode前面插入节点ele
+        box.replaceChild(span, box.firstChild);//parentNode.replaceChild(newNode, oldNode)替换节点，用newNode替换oldNode
+        box.removeChild(span); // 删除节点
+
+        let clone = box.cloneNode(true); // targetNode.clone(true)克隆节点，true表示子节点也复制，否则不复制子节点
+        document.body.appendChild(clone);
+    </script>
+</body>
+
+</html>

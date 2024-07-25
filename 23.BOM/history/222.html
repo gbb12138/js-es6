@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button">点击</button>
+    2222.html
+    <script>
+        let obj = {
+            name: 'aa',
+            age: 1
+        }
+        window.addEventListener("pushstate", (event) => {
+            let state = event.state;
+            console.log(event, '***');
+        });
+        button.onclick = function () {
+            history.pushState(obj, '', 'pushState.html');
+        }
+    </script>
+</body>
+
+</html>
