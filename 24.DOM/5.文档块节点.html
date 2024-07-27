@@ -9,10 +9,15 @@
 
 <body>
     <script>
+        // 将要创建的元素放入文档块，将文档块一次性插入dom中，减少操作dom的次数
+        // 文档块，nodeType: 11
         let documentFragment = document.createDocumentFragment();
         for (let i = 0; i < 3; i++) {
-
+            let ele = document.createElement('div');
+            ele.innerText = `第${i}个div`;
+            documentFragment.appendChild(ele); // 将元素插入文档块中
         }
+        document.body.appendChild(documentFragment); // 将文档块插入body
     </script>
 </body>
 

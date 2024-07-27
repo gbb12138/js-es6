@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击修改字符</button>
+    <script>
+        let text = document.createTextNode('123456789');
+        let button = document.getElementsByTagName('button')[0];
+        document.body.appendChild(text);
+        button.addEventListener('click', () => {
+            text.nodeValue = '123'
+        })
+
+        let observer = new MutationObserver(recordList => {
+            for (let record of recordList) {
+                console.log(record, record.oldValue, record.target.nodeValue);//修改前的值，当前值
+            }
+        });
+        observer.observe(text, {
+            characterData: true, // 修改，添加，删除字符时出发回调
+            characterDataOldValue: true, // 记录修改前的字符
+        })
+    </script>
+</body>
+
+</html>

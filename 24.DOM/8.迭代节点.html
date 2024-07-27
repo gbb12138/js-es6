@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // 获取元素返回 HTMLCollection，HTMLCollection是类数组，有从零开始的索引，length属性，可以通过for of 遍历
+        let li = document.getElementsByTagName('li');
+        let len = li.length; // 遍历HTMLCollection时，最好保存其长度
+        for (let i = 0; i < len; i++) {
+            console.log(li[i]);
+        }
+        for (let node of li) {
+            console.log(node);
+        }
+        for (let index in li) {
+            console.log(index);
+        }
+    </script>
+</body>
+
+</html>

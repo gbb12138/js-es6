@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button>删除节点</button>
+    <button>增加节点</button>
+    <script>
+        let ul = document.getElementsByTagName('ul')[0];
+        let btnRemove = document.getElementsByTagName('button')[0];
+        let btnAdd = document.getElementsByTagName('button')[1];
+        btnAdd.addEventListener('click', () => {
+            let li = document.createElement('li');
+            li.textContent = '4444';
+            ul.appendChild(li);
+        });
+        btnRemove.addEventListener('click', () => {
+            ul.removeChild(ul.firstElementChild);
+        })
+
+
+        // 删除，添加子节点触发回调
+        let observer = new MutationObserver(recordList => {
+            for (let record of recordList) {
+                console.log(record);
+            }
+        });
+        observer.observe(ul, {
+            childList: true
+        })
+
+
+
+    </script>
+</body>
+
+</html>

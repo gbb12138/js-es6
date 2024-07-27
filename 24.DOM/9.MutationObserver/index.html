@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>123</div>
+    <p>456</p>
+    <button>添加属性</button>
+    <script>
+        let div = document.getElementsByTagName('div')[0];
+        let button = document.getElementsByTagName('button')[0];
+        let p = document.getElementsByTagName('p')[0];
+        button.addEventListener('click', (event) => {
+            div.setAttribute('data-observe', `{ name: 'aa' }`)
+            p.setAttribute('data-p', 22);
+        })
+
+        // MutationObserver接口：DOM被修改时，执行异步回调
+        // 创建MutationObserver对象：new MutationObserver(callback)
+        let observer = new MutationObserver(record => {
+            // 回调函数record，类数组对象，record的顺序按照出发先后
+            console.log('dom 被修改后执行的异步操作', record, typeof record);
+            for (let item of record) {
+                // record的每一项包括：{
+                //  target: 没操作DOM节点的引用
+                //  type: attributes  触发MutationObserver的option类型 
+                //  attributeName: 修改的属性名
+                // }
+                console.log(item, item.target);
+            }
+        });
+        // 通过调用observe()，将observer对象与DOM关系,第二个参数options：键值对匹配选项
+        observer.observe(div, {
+            attributes: true
+        });
+        observer.observe(p, {
+            attributes: true
+        })
+
+        setTimeout(() => {
+            //observer.disconnect(); // 停止执行回调
+        }, 1000);
+
+
+
+    </script>
+</body>
+
+</html>
