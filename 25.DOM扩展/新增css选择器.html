@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box container">
+        <p>11</p>
+        <p>22</p>
+    </div>
+    <div>aaa</div>
+    <div class="box">bbb</div>
+    <div id="div">
+        div
+        <p>ccc</p>
+    </div>
+    <script>
+        // querySelector：选择匹配的第一个元素 querySelectorAll：选择匹配的元素列表，都可用于document和元素上调用
+        let div1 = document.querySelector('#div');
+        let p1 = div1.querySelector('p');
+        p1.style.fontSize = '30px';
+        let div = document.querySelectorAll('div');
+        [...div].map(item => item.style.color = 'red');
+        let p = document.querySelectorAll('p');
+        for (let item of p) {
+            item.style.backgroundColor = 'pink';
+        }
+
+
+        console.log('获取页面加载状态：', document.readyState);
+        console.log('body::', document.body);
+        console.log('head::', document.head);
+
+        console.log(div1.children, div1.childNodes); //children所有元素子元素，childNodes子节点，包括注释，文本节点类型
+        console.log(div1.innerHTML, div1.innerText);
+        div1.innerHTML = '<span>innerHTML插入span</span>';
+        div1.innerText = 'innerText插入文本';
+    </script>
+</body>
+
+</html>
