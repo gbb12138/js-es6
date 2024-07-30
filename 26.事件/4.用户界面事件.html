@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- load,unload,resize,scroll -->
+    <script>
+        // load: window, img, script, link
+
+        // 在页面加载完成，包括js，css，图片全部加载完成后触发
+        window.onload = function (event) {
+            console.log('window load...', event);
+        };
+
+        {
+            let img = document.createElement('img');
+            img.addEventListener('load', function (event) {
+                console.log('img load...', event, event.target);
+                // 图片已经下载完成
+                document.body.appendChild(img);
+            });
+            // 给图片添加src属性后，图片就开始下载
+            img.src = 'https://search-operate.cdn.bcebos.com/e8cbce1d53432a6950071bf26b640e2b.gif';
+        }
+        {
+            // script标签在指定src并且append到页面后，才开始下载
+            let script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js';
+            script.addEventListener('load', function (event) {
+                console.log('script load...', event.target);
+            });
+            document.body.appendChild(script);
+        }
+
+        // resize
+        window.onresize = function (event) {
+            console.log(event, 'window resize...');
+        }
+        // scroll
+        {
+            let div = document.createElement('div');
+            div.style.width = '100%';
+            div.style.height = '1000px';
+            div.style.backgroundColor = 'pink';
+            document.body.appendChild(div);
+            let documentEle = document.documentElement;
+            // 给window绑定scroll事件，通过document.documentElement获取scrollTop，scrollLeft
+            window.onscroll = function (event) {
+                console.log('window scroll', documentEle.scrollTop, documentEle.scrollLeft);
+            }
+        }
+    </script>
+</body>
+
+</html>
