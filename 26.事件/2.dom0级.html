@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击事件</button>
+    <script>
+        let button = document.querySelector('button');
+        // 点击button，事件冒泡直到document，dom0级事件是在事件冒泡阶段注册， 先出发button，再冒泡到body上
+        button.onclick = function (event) {
+            // this指向绑定事件的元素button
+            console.log(event, this, 'button click...');
+        }
+        document.body.onclick = function (event) {
+            // event.target指向 button ，触发事件的元素，this指向当前绑定事件元素body
+            console.log(event, this, 'body click...');
+        }
+    </script>
+</body>
+
+</html>

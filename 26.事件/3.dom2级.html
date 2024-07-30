@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <button type="submit">点击事件</button>
+    </form>
+
+    <script>
+        let button = document.querySelector('button');
+        button.addEventListener('click', function (event) {
+
+            // 普通函数：this指向绑定事件的元素，箭头函数：this指向window
+            console.log('button click...', event, this);
+            event.stopPropagation(); // 阻止事件冒泡
+            console.log(event.cancelBubble); // 阻止冒泡后，cancelBubble的值变成true
+            event.preventDefault(); //取消元素事件的默认行为，这里取消了，点击按钮的提交行为
+            console.log(event.type, event.currentTarget);//event.type:事件类型，event.currentTarget:事件绑定的当前元素，也就是this
+
+
+        }, false); // 第三个参数，true：事件捕获 false：事件冒泡，默认false
+
+        document.body.addEventListener('click', function (event) {
+            console.log('body click...', event, this);
+        }, false);
+
+
+    </script>
+</body>
+
+</html>

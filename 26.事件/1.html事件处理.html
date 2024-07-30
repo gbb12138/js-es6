@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="radio" name="user" value="user">user
+        <input type="radio" name="age" value="age">age
+        <!-- 在html元素上绑定事件，一个参数，event -->
+        <button type="button" onclick="handle(event)">方法是全局函数</button>
+        <!-- 在html中，this指向触发的element元素，在绑定方法中，可以访问到全局的任何变量，作用域也被扩展了，document， this， form -->
+        <!-- 这里this是当前button的element引用；value => this.value = 12345；user => this.form.user -->
+        <button type="button" value="12345" onclick="console.log('方法直接写在元素上', event,this, value, user)">
+            方法在html元素
+        </button>
+
+    </form>
+
+
+    <script>
+        function handle(event) {
+            console.log('事件在全局中定义：', event, this); // 调用函数，this指向window对象，函数是在全局环境中执行的
+        }
+    </script>
+</body>
+
+</html>

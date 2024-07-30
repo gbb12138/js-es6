@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d41a7a6-d1e4-4a72-88ea-3c28b9974c2e" name="Changes" comment="对象，继承，代理">
-      <change beforePath="$PROJECT_DIR$/20.生成器函数/定义和调用生成器函数.js" beforeDir="false" afterPath="$PROJECT_DIR$/20.生成器函数/定义和调用生成器函数.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/26.事件/1.html事件处理.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +80,7 @@
       <workItem from="1721308822473" duration="2277000" />
       <workItem from="1721474127218" duration="119000" />
       <workItem from="1721474956175" duration="42000" />
+      <workItem from="1722081973093" duration="379000" />
     </task>
     <task id="LOCAL-00001" summary="解决冲突">
       <option name="closed" value="true" />
