@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function (e) {
+            if (request.readyState === 4) { // 4:请求完成
+                console.log(request)
+                //返回成功状态码，或者资源没有修改过，从缓存中读取
+                if (request.status >= 200 && request.status < 300 || request.status === 304) {
+                    console.log(request.response);
+                }
+            }
+        }
+        request.onprogress = function (event) {
+            console.log(event, event.total, event.loaded, 'progress...')
+        }
+        request.open('get', 'http://127.0.0.1:8000/api');
+        request.send();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 图片探测，只能发送get请求，不能获取服务器的资源
+        let img = document.createElement('img');
+        img.src = 'http://127.0.0.1:5500/1.jpeg';
+        img.onload = function (e) {
+            console.log(e, 'load...');
+            document.body.appendChild(img);
+        }
+        img.onerror = function (e) {
+            console.log(e, 'err..')
+        }
+
+        // jsonp,请求成功后，立即调用callback函数，并把返回数据传入callback参数
+        // 不能确定jsonp请求服务的安全性，如果返回的数据有恶心内容，只能通过删除script解决，
+        // 不能确定jsonp连接是否失败，浏览器可能不支持onerror事件
+        function handle(res) {
+            console.log('jsonp...', res);
+        }
+        let script = document.createElement('script');
+        script.src = 'http://127.0.0.1:8000/info?callback=handle';
+        script.onerror = function (e) {
+            console.log('script err...', e);
+        }
+        document.body.appendChild(script);
+    </script>
+</body>
+
+</html>

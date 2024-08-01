@@ -8,7 +8,20 @@
 </head>
 
 <body>
-
+    <input type="text">
+    <script>
+        let input = document.querySelector('input');
+        // focusin()：focus的冒泡版，focusout：blur的冒泡版
+        input.addEventListener('focusin', function (e) {
+            console.log('input focusin', e);
+        });
+        window.onload = function () {
+            // focus(),blur()事件不冒泡
+            input.focus();
+            // hasFocus()是否有获得焦点的元素，activeElement活动中的元素，返回元素引用
+            console.log(document.hasFocus(), document.activeElement);
+        }
+    </script>
 </body>
 
 </html>
